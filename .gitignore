@@ -9,5 +9,6 @@
 .gradle
 .vscode
 .settings
+.project
 bin
 dist
