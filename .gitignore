@@ -8,5 +8,6 @@
 
 .gradle
 .vscode
+.settings
 bin
 dist
