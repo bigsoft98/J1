@@ -1,0 +1,45 @@
+apply plugin: 'java'
+
+group = 'au.com.kelijo.K1.aws'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    //  maven{
+	// 	 url "https://repo.maven.apache.org/maven2/"
+	//  }
+	 mavenCentral()
+}
+
+ dependencies {
+ 	implementation platform('software.amazon.awssdk:bom:2.10.73')
+ 	implementation ('software.amazon.awssdk:kinesis')
+ 	implementation ('software.amazon.awssdk:dynamodb')
+	implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
+	implementation 'com.amazonaws:aws-lambda-java-events:2.2.9'
+	implementation 'com.google.code.gson:gson:2.8.6'
+}
+
+java{
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+
+task buildZip(type: Zip) {
+	destinationDirectory = file("../dist")
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+}
+
+build.dependsOn buildZip
+
+// test {
+// 	useJUnitPlatform()
+// }
+
+// bootJar {
+// 	layered()
+// }

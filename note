@@ -1,0 +1,2 @@
+sam local start-lambda --template cfn/template.yaml
+aws lambda invoke --function-name "function"  --endpoint-url "http://127.0.0.1:3001" --no-verify-ssl out.txt

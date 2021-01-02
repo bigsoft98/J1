@@ -1,0 +1,12 @@
+# Ignore Gradle project-specific cache directory
+/lambda/.gradle
+
+# Ignore Gradle build output directory
+/lambda/build
+
+/lambda/bin
+
+.gradle
+.vscode
+bin
+dist
